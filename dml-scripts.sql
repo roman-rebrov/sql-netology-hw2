@@ -17,6 +17,10 @@ INSERT INTO ORDERS (date, customer_id, product_name, amount) VALUES (CURDATE(), 
 
 ----------------------------------
 ----------------------------------
+SELECT product_name as name FROM ORDERS JOIN CUSTOMERS ON ORDERS.customer_id = CUSTOMERS.id WHERE UPPER(name) = UPPER('alexey');
+
+
 SELECT ORDERS.product_name FROM ORDERS INNER JOIN CUSTOMERS ON UPPER(CUSTOMERS.name) = UPPER('alexey') AND ORDERS.customer_id = CUSTOMERS.id;
+
 
 SELECT product_name FROM ORDERS WHERE customer_id IN (SELECT id FROM CUSTOMERS WHERE UPPER(name) = UPPER('alexey'));
